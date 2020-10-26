@@ -29,8 +29,7 @@ namespace aws_image_rekognition
             try
             {
                 await using var fs = new FileStream(photo, FileMode.Open, FileAccess.Read);
-                byte[] data = null;
-                data = new byte[fs.Length];
+                var data = new byte[fs.Length];
                 fs.Read(data, 0, (int)fs.Length);
                 image.Bytes = new MemoryStream(data);
             }
